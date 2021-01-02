@@ -1,11 +1,11 @@
 // returns a number that represents the sum of all the selected menu
-// item prices.
+// article prices.
 function calculateBill(idMenuTable) {
     var fBillTotal = 0.0;
     var i = 0;
     var aCBTags = document.querySelectorAll('input');
     for (i = 0; i < aCBTags.length; i++) {
-        // is this menu item selected? it is if the checkbox is checked
+        // is this menu article selected? it is if the checkbox is checked
         if (aCBTags[i].checked) {
             // get the checkbox' parent table row
             var oTR = getParentTag(aCBTags[i], 'TR');
@@ -19,17 +19,17 @@ function calculateBill(idMenuTable) {
     return Math.round(fBillTotal * 100.0) / 100.0;
 };
 
-function highlightVegetarian(idTable, bShowVeg) {
-    // if bShowVeg is true, then we're highlighting vegetarian
+function highlightonSale(idTable, bShowVeg) {
+    // if bShowVeg is true, then we're highlighting onSale
     //	meals, otherwise we're unhighlighting them.
     var i = 0;
     var oTable = document.getElementById(idTable);
     var oTBODY = oTable.getElementsByTagName('tbody')[0];
     var aTRs = oTBODY.getElementsByTagName('tr');
     // walk through each of the table rows and see if it has a 
-    // "vegetarian" attribute on it.
+    // "onSale" attribute on it.
     for (i = 0; i < aTRs.length; i++) {
-        if (aTRs[i].getAttribute('vegetarian') == "true") {
+        if (aTRs[i].getAttribute('onSale') == "true") {
             if (bShowVeg) {
                 aTRs[i].style.backgroundColor = "lightGreen";
             } else {
